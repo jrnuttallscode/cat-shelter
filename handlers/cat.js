@@ -4,7 +4,7 @@ const path = require('path');
 const qs = require('querystring');
 const formidable = require('formidable');
 const breeds = require('../data/breeds');
-const cate = require('../data/cats');
+const cats = require('../data/cats');
 
 module.exports = (req, res) => {
 
@@ -50,4 +50,20 @@ module.exports = (req, res) => {
       
       return true;
    }
+   let filePath = path.normalize(path.join(__dirname, "./views/addCat.html"));
+
+   const index = fs.createReadStream(filePath);
+
+   index.on("data", (data) => {
+      res.write(data);
+   });
+
+   index.on("end", () => {
+      res.end();
+   });
+
+   index.on("error", (err) => {
+      console.log(err);
+   });
+
 };

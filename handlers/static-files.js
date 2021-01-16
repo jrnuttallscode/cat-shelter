@@ -1,7 +1,3 @@
-
-
-
-
 function getContentType(url) {
    
    if (url.endsWith('css')) {
@@ -10,12 +6,6 @@ function getContentType(url) {
       // TO DO
    }
 }
-
-
-
-
-
-
 
 module.exports = (req, res) => {
 
